@@ -231,3 +231,82 @@ JS 练习
         obj = null;
      
 > js数组
+
+      var arr = ["a","b"];
+
+1. 方法
+    + arr.push("c");   arr.push("c","d");  向数追加新元素值1个或多个，返回新的数组个数 a b c / a b c d
+    + arr.pop(); 删除数组最后一个元素，返回删除的元素 b
+    + arr.unshift("A"); 数组开头追加新元素，返回追加后的数组长度 A a b = 3 
+    + arr.shift(); 删除数组第一个元素，返回删除的元素 a
+    + arr.forEach() 循环数组，详情请看上边 《 js 循环 》
+    + arr.slice(0,1); 提取指定元素 从索引0开始，到索引1结束
+    + arr.splice(0, 1, "c"); 删除元素并添加新元素，返回删除的元素 a ，arr 变成 c b
+    + arr.concat(["c","d"]); 连接两个或多个数组，不会对arr产生影响，返回新的数组 a b c d
+    + arr.join(","); 将数组转换成字符串并以括号里的字符串连接符进行连接 返回字符串 a,b
+    + arr.reverse(); 数组内值进行翻转 b a
+    + arr.sort(); 按照 unicode 编码排序
+
+            排序
+            var newArray = [2, 3, 1, 6, 7, 5, 4];
+            newArray.sort(function(a, b){
+                return a - b;// 升序 1 2 3 4 5 6 7
+                return b - a;// 降序 7 6 5 4 3 2 1
+            });
+2. 例子
+
+        去除重复数据
+        var newArray = [1, 2, 1, 3, 4, 5, 4, 3];
+        for( var i=0; i<newArray.length; i++){
+            for(var j=i+1; j<newArray.length; j++){
+                if(newArray[i] == newArray[j]){
+                    newArray.splice(j, 1);
+                }
+            }
+        }
+        
+        去除重复数据，并且有相邻的重复数据
+        var newArray = [1, 2, 1, 1, 3, 4, 5, 4, 4, 3];
+        for( var i=0; i<newArray.length; i++){
+            for(var j=i+1; j<newArray.length; j++){
+                if(newArray[i] == newArray[j]){
+                    newArray.splice(j, 1);
+                    j--;
+                }
+            }
+        }
+        
+> js call、apply 调用函数的方法
+
+###### call() 方法可以将实参在对象后依次传递
+###### apply() 方法需要将实参封装到一个数组中传递
+
+> js arguments 是一个类数组对象，也可以通过索引获取数组数据和长度
+
+> js Date 对象 
+        
+        var date = new Date("08/01/2019 23:23:23");;
+        
+> js Math
+
+1. Math.abs();  计算一个数的绝对值
+2. Math.ceil(); 对一个小数向上取整，小数位有值就进1
+3. Math.floor(); 对一个小数向下取整，舍弃小数点以后的值
+4. Math.round(); 四舍五入
+5. Math.random(); 生成随机数
+       
+           Math.round(Math.random() * 10) 生成 0-10直接的随机数
+           
+> js 字符串方法
+
+      var str = "abcdefg";
+
+1. str.charAt(2);  查找指定位置的字符串并返回  c
+2. str.concat("h","i"); 连接一个或多个字符串 abcdefghi
+3. str.indexOf("g");  检索一个字符串是否存在指定内容（<font color="red">从前往后找</font>），找到返回索引，找不到-1
+4. str.lastIndexOf("g"); 检索一个字符串是否存在指定内容（<font color="red">从后往前找</font>），找到返回索引，找不到-1
+5. str.slice(0, 2); 截取字符串指定内容   返回 ab
+6. str.substring(0, 2); 截取字符串指定内容   返回 ab
+7. str.split(","); 将一个字符串拆分成数组
+8. str.toUpperCase(); 将一个字符串转换成大写并返回  ABCDEFG
+9. str.toLowerCase(); 将一个字符串转换成小写并返回
