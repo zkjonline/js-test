@@ -285,7 +285,7 @@ JS 练习
 
 > js Date 对象 
         
-        var date = new Date("08/01/2019 23:23:23");;
+        var date = new Date("08/01/2019 23:23:23");
         
 > js Math
 
@@ -310,3 +310,108 @@ JS 练习
 7. str.split(","); 将一个字符串拆分成数组
 8. str.toUpperCase(); 将一个字符串转换成大写并返回  ABCDEFG
 9. str.toLowerCase(); 将一个字符串转换成小写并返回
+
+> js 正则
+
+1. /正则表达式/i &nbsp;&nbsp; /正则表达式/g  &nbsp;&nbsp; /正则表达式/ig &nbsp;&nbsp; 表达式末尾<font color="red">i</font>忽略大小写，<font color="red">g</font>全局匹配模式
+2. 正则表达式.test(需要正则的内容);  用test来检测正则表达式是否符合规则
+3. srt.split(正则表达式); 可以写正则拆分字符串，注：不用设置全局匹配模式g
+
+         var str = "abcdefgG";
+         str.split(/e/); // 返回 ["abcd", "fgG"]
+             
+3. srt.search(正则表达式); 搜索字符串是否存在， 注：不用设置全局匹配模式，设置了也不起作用
+
+        var str = "abcdefgG";
+        str.search(/b/); // 找到返回字符串b的起始位置 1，找不到返回 -1
+              
+3. srt.match(正则表达式); 查找匹配的字符串， 可以设置全局匹配
+
+        var str = "abcdefgG";
+        str.match(/abc/); // 返回 ["abc", index: 0, input: "abcdefgG", groups: undefined]
+        
+3. srt.replace(正则表达式查找需要替换的内容, 替换的内容); 替换指定字符串的内容
+
+        var str = "abcdefgG";
+        str.replace(/abc/, "123"); // 返回  123defgG
+        
+4. 量词
+
+    + {n} 出现的次数，只对花括号前边的内容起作用
+    
+               var str = "abcdefgG";
+               var reg = /a{1}/; // true
+               var reg = /a{2}/; // false
+               console.log(reg.test(str));
+               
+    + {m-n} 出现 m-n 次
+    
+            var str = "abbbc";
+            var reg = /ab{1,2}c/; // true
+            var reg = /ab{4,8}c/; // false
+            console.log(reg.test(str));
+            
+    + {m,} 出现m次以上
+        
+            var str = "abbbc";
+            var reg = /ab{2,}c/; // true
+            var reg = /ab{9,}c/; // false
+            console.log(reg.test(str));
+            
+    + {ab+c} 至少一个，相当于{1,}
+    
+            var str = "abbbbc";
+            var reg = /ab+c/; // true
+            var reg = /ab+cd/; // false
+            console.log(reg.test(str));
+    + {ab*c} 0个或多个，相当于{0,}
+
+            var str = "abbbbcabbbbc";
+            var reg = /ab*c/; // true
+            var reg = /ab+cd/; // false
+            console.log(reg.test(str));
+    + {ab?c} 0个或1个，相当于{0,1}
+    
+            var str = "abc";
+            var reg = /ab?c/; // true
+            
+            var str = "abbc";
+            var reg = /ab?c/; // false
+            console.log(reg.test(str));
+    + /^a/ 必须是xxx开头 
+    
+            var str = "abc";
+            var reg = /^a/; // true
+            
+            var str = "bbc";
+            var reg = /^a/; // false
+            console.log(reg.test(str));
+    + /a$/ 必须是xxx结尾
+    
+            var str = "bca";
+            var reg = /^a/; // true
+            
+            var str = "fbbcb";
+            var reg = /^a/; // false
+            console.log(reg.test(str));
+    + /./ 任意字符
+    
+8. 元字符
+
+    + /w/ /W/  小写w匹配字母、数字、_ ， 大写W匹配除了字母、数字、_
+    + /d/ /D/  小写d匹配任意数字[0-9] ， 大写D匹配除了任意数字[0-9]
+    + /s/ /S/  小写匹配空格， 大写S匹配除了空格
+    + /b/ /B/  小写b匹配单词边界， 大写B匹配除了单词边界
+    + /^\s*|\s*$/g 匹配开头和结尾的空格
+    
+9.  简单的手机号验证和qq邮箱验证练习
+
+            var phone = "13599999999";
+            var reg = /^1[3-9][0-9]{9}$/;
+            console.log(reg.test(phone));
+            
+            var email = "123333@qq.com";
+            var regEmail = /^[0-9]{5,10}@[a-z]{2}\.([a-z]{3})$/;
+            console.log(regEmail.test(email));
+
+> js DOM
