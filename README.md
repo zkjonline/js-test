@@ -313,7 +313,7 @@ JS 练习
 
 > js 正则
 
-1. /正则表达式/i &nbsp;&nbsp; /正则表达式/g  &nbsp;&nbsp; /正则表达式/ig &nbsp;&nbsp; 表达式末尾<font color="red">i</font>忽略大小写，<font color="red">g</font>全局匹配模式
+1. /正则表达式/i &nbsp;&nbsp; /正则表达式/g  &nbsp;&nbsp; /正则表达式/ig &nbsp;&nbsp; 表达式末尾 &nbsp;&nbsp;<font color="red">i</font>忽略大小写，<font color="red">g</font>全局匹配模式
 2. 正则表达式.test(需要正则的内容);  用test来检测正则表达式是否符合规则
 3. srt.split(正则表达式); 可以写正则拆分字符串，注：不用设置全局匹配模式g
 
@@ -415,3 +415,43 @@ JS 练习
             console.log(regEmail.test(email));
 
 > js DOM
+
+1. onload 事件会在页面加载完成后执行
+2. document.getElementById();  查找id
+3. document.getElementByTagName(); 根据标签名获取一组元素的节点对象
+4. document.getElementByName(); 根据name获取标签，返回数组
+5. document.querySelector(); 可以根据css选择器，查询一个元素的节点对象 
+6. 属性介绍
+    + childNodes 获取所有子节点
+    + firstChild 获取当前节点的第一个子节点
+    + lastChild 获取当前节点的最后一个子节点
+    + parentNodes 获取当前节点的父节点
+    + previousSibling 获取当前节点的前一个兄弟元素
+    + nextSibling 获取当前节点的后一个兄弟元素
+    + appendChild 向一个父节点中添加一个子节点
+    + removeChild 删除子节点
+    + replaceChild 替换子节点
+   
+> js 事件冒泡
+
+###### 就是事件的向上传导，当后代元素的事件触发时，其祖先元素相同事件也会触发
+1. addEventListener("click", 回调函数, false)为元素绑定响应函数
+2. location.href 跳转
+3. history.go 返回上一级
+
+> js 定时器
+
+1. setInterval() 定时调用，可以将一个函数每隔一段时间执行一次，返回number
+
+        setInterval(function(){
+            console.log(1);
+        }, 1000);
+        
+2. clearInterval() 关闭一个定时器
+3. setTimeout()  延时调用一个函数，不马上执行，隔一段时间在执行，只会执行一次
+4. clearTimeout() 关闭一个延时调用
+
+> js json
+
+1. json.parse() 将json字符串转换为js对象
+2. json.stringify() 将js对象转json字符串
